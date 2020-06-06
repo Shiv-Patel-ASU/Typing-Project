@@ -1,0 +1,115 @@
+import * as React from "react";
+import { Component } from "react";
+import { Container, Col, Row, Button } from "react-bootstrap";
+import "../cssfiles/node.css";
+import $ from "jquery";
+import "tachyons";
+
+export interface NodeProps {
+  currentWord: string;
+  finalstr: string;
+  text: string;
+}
+
+export interface NodeState {
+  allNodes: soloNode[];
+  final: String;
+  rawArray: String[];
+  currentLetter: String;
+}
+
+interface soloNode {
+  letter: String;
+  currentColor: number;
+}
+
+let chars: string[];
+let index: number = 0;
+class Node extends Component<NodeProps, NodeState> {
+  state: NodeState = {
+    allNodes: [],
+    final: "",
+    rawArray: [],
+    currentLetter: "",
+  };
+
+  changeColor = () => {
+    chars = Array.from(this.props.text);
+    console.log("current letter", this.state.currentLetter);
+    console.log("index", this.state.rawArray[index]);
+    if (this.state.currentLetter === this.state.rawArray[index]) {
+      index = index + 1;
+    }
+    var cell = this.state.rawArray.map((each, i) => {
+      if (i === index) {
+        if (each === " ") {
+          return (
+            <Col className="Col1 bg-light-purple mg1 pa1 bb" md="auto" key={i}>
+              {"_"}
+            </Col>
+          );
+        } else {
+          return (
+            <Col className="Coll1 bg-light-purple mg1 pa1 bb" md="auto" key={i}>
+              {each}
+            </Col>
+          );
+        }
+      } else {
+        if (each === " ") {
+          return (
+            <Col className="Col1 bg-lightest-blue mg1 pa1 bb" md="auto" key={i}>
+              {"_"}
+            </Col>
+          );
+        } else
+          return (
+            <Col className="Coll bg-lightest-blue mg1 pa1 bb" md="auto" key={i}>
+              {each}
+            </Col>
+          );
+      }
+    });
+    return cell;
+  };
+
+  logic = () => {
+    let check: string = "";
+    let _this = this;
+    this.setState({ rawArray: chars });
+
+    $("button").prop("disabled", true);
+    $("button").blur();
+
+    $(document).keydown(function (event) {
+      if (event.keyCode === 27) {
+        $(this).unbind(event);
+        $("button").prop("disabled", false);
+      }
+
+      _this.setState({ currentLetter: event.key });
+      check = check.concat(event.key);
+      _this.setState({ final: check });
+    });
+  };
+
+  render() {
+    return (
+      <Container>
+        <Row className="justify-content-md-center ba bg-lightest-blue">
+          {this.changeColor()}
+        </Row>
+        <Row>
+          <br></br>
+        </Row>
+        <Row className="justify-content-md-center">
+          <Button variant="primary" onClick={this.logic}>
+            Start
+          </Button>
+        </Row>
+      </Container>
+    );
+  }
+}
+
+export default Node;

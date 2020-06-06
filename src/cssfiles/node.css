@@ -1,0 +1,40 @@
+.centerContainer {
+  align-content: center;
+  padding: 20;
+}
+
+.Rows {
+  border: 2px solid red;
+}
+
+.Coll {
+  font-family: "Trebuchet MS", sans-serif;
+  font-weight: 800;
+  text-align: center;
+  height: 30px;
+}
+
+.Coll1 {
+  border-bottom: 3px solid red;
+  font-family: "Trebuchet MS", sans-serif;
+  font-weight: 800;
+  text-align: center;
+  height: 30px;
+}
+
+.Error {
+  font-family: "Trebuchet MS", sans-serif;
+  font-weight: 800;
+  text-align: center;
+  height: 30px;
+  color: red;
+}
+
+.Error1 {
+  border-bottom: 3px solid red;
+  font-family: "Trebuchet MS", sans-serif;
+  font-weight: 800;
+  text-align: center;
+  height: 30px;
+  color: red;
+}
