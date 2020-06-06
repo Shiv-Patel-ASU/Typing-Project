@@ -131,20 +131,23 @@ class Node extends Component<NodeProps, NodeState> {
 
       const { index } = this.state;
       this.setState({ currentLetter: e.key }); //setting the current typed key value
+      console.log("current Letter", this.state.currentLetter);
       this.setState({ final: this.state.final.concat(e.key) });
       if (this.state.index < this.state.allNodes.length) {
-        if (this.state.currentLetter === this.state.allNodes[index].letter) {
-          //If the current letter typed matches the proper index in the array, it will increment the index (cursor)
-          this.setState({ index: index + 1 });
-        } else {
-          let status: singleNode[] = Object.assign({}, this.state.allNodes); //If it does not match, it will set the currentColor to red, meaning the letter was typed in incorrectly.
-          status[index].currentColor = 1; //currentColor 0 means it was typed corrently and 1 means it was typed incorrectly
-          temp = status;
-        }
+        if (this.state.currentLetter !== "Shift") {
+          if (this.state.currentLetter === this.state.allNodes[index].letter) {
+            //If the current letter typed matches the proper index in the array, it will increment the index (cursor)
+            this.setState({ index: index + 1 });
+          } else {
+            let status: singleNode[] = Object.assign({}, this.state.allNodes); //If it does not match, it will set the currentColor to red, meaning the letter was typed in incorrectly.
+            status[index].currentColor = 1; //currentColor 0 means it was typed corrently and 1 means it was typed incorrectly
+            temp = status;
+          }
 
-        if (this.state.index >= 5) {
-          wpm = Math.round(index / 5 / (this.state.timerTime / 60));
-          this.setState({ wordsPerMin: wpm });
+          if (this.state.index >= 5) {
+            wpm = Math.round(index / 5 / (this.state.timerTime / 60));
+            this.setState({ wordsPerMin: wpm });
+          }
         }
       } else {
         this.reset();
