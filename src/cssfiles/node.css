@@ -1,6 +1,17 @@
-.centerContainer {
-  align-content: center;
-  padding: 20;
+.topContainer {
+  border-width: 5px;
+  border-style: solid;
+  border-color: black;
+}
+
+.bottomContainer {
+  border-bottom-style: solid;
+  border-bottom-width: 5px;
+  border-left-style: solid;
+  border-left-width: 5px;
+  border-right-style: solid;
+  border-right-width: 5px;
+  border-color: black;
 }
 
 .Rows {
@@ -8,33 +19,46 @@
 }
 
 .Coll {
-  font-family: "Trebuchet MS", sans-serif;
+  font-family: "Martel";
+  font-size: 20px;
   font-weight: 800;
   text-align: center;
-  height: 30px;
+  height: 32px;
 }
 
 .Coll1 {
-  border-bottom: 3px solid red;
-  font-family: "Trebuchet MS", sans-serif;
+  font-family: "Martel";
+  font-size: 20px;
   font-weight: 800;
   text-align: center;
-  height: 30px;
+  height: 32px;
+  color: white;
 }
 
 .Error {
-  font-family: "Trebuchet MS", sans-serif;
+  font-family: "Martel";
+  font-size: 20px;
   font-weight: 800;
   text-align: center;
-  height: 30px;
-  color: red;
+  height: 32px;
+  background-color: #ff6666;
 }
 
 .Error1 {
-  border-bottom: 3px solid red;
-  font-family: "Trebuchet MS", sans-serif;
+  font-family: "Martel";
+  font-size: 20px;
   font-weight: 800;
   text-align: center;
-  height: 30px;
-  color: red;
+  height: 32px;
+  color: white;
+}
+
+.hero-image {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("photographer.jpg");
+  min-height: 1000px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 }
