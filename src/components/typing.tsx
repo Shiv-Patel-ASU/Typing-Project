@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Component } from "react";
-import "C:/Users/Shiv/Desktop/projects/typingapp/src/cssfiles/typing.css";
+import "../cssfiles/typing.css";
 import Node from "./Node";
 import { Container } from "react-bootstrap";
 
